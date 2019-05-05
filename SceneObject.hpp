@@ -6,12 +6,10 @@
 
 // Base SceneObject class. Never returns collisions
 class SceneObject {
-private:
 public:
     Material* material;
-
-    Material* GetMaterial() { return material; }
-    float GetDistance(Vector position) { return 1e9; }
+    Material* GetMaterial();
+    float GetDistance(Vector position);
 };
 
 class Sphere: public SceneObject {
@@ -19,26 +17,16 @@ private:
     Vector center;
     float radius;
 public:
-    Sphere(Vector center, float radius) {
-        this->center = center;
-        this->radius = radius;
-    }
-    float GetDistance(Vector position) {
-        Vector distanceToCenter = position - center;
-        return distanceToCenter.magnitude() - radius;
-    }
+    Sphere(Vector center, float radius);
+    float GetDistance(Vector position);
 };
 
 class Floor: public SceneObject {
 private:
     float height;
 public:
-    Floor(float height) {
-        this->height = height;
-    }
-    float GetDistance(Vector position) {
-        return position.y - height;
-    }
+    Floor(float height);
+    float GetDistance(Vector position);
 };
 
 #endif // SCENEOBJECT_H_

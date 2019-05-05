@@ -9,10 +9,10 @@
 #define HALF_PI 1.57079632679
 #define ROOT2 1.41421356237
 
-float min(float l, float r) { return l < r ? l : r; }
-float max(float l, float r) { return l > r ? l : r; }
-float random() { return (float)rand() / RAND_MAX; }
+float min(float l, float r);
+float max(float l, float r);
+float random();
 
-std::default_random_engine randomGenerator;
+extern std::default_random_engine randomGenerator;
 
 #endif

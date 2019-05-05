@@ -20,7 +20,11 @@ private:
     Vector right;
     Vector up;
 public:
-    Camera();
+    Camera() {
+        width = 0;
+        height = 0;
+        fov = 0;
+    }
 
     void setSceneSettings(int width, int height) {
         this->width = (float)width;
@@ -29,6 +33,9 @@ public:
 
     void setPosition(Vector pos) {
         position = pos;
+    }
+    void setFOV(float fov) {
+        this->fov = fov;
     }
     void setAltitude(float rot) {
         altitude = rot;
