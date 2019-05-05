@@ -1,0 +1,4 @@
+.vscode
+.depend
+*.exe
+*.o
