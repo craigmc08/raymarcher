@@ -1,7 +1,7 @@
 CPP = g++
 CPPFLAGS = -g
 
-SRCS = main.cpp Scene.cpp Task.cpp Vector.cpp Ray.cpp util.cpp SceneObject.cpp Material.cpp
+SRCS = main.cpp Scene.cpp Task.cpp Vector.cpp Ray.cpp util.cpp SceneObject.cpp Material.cpp BRDF.cpp
 OBJS = $(subst .cpp,.o,$(SRCS))
 
 main: $(OBJS)
