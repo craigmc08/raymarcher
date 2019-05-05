@@ -5,90 +5,38 @@
 
 struct Vector {
     float x, y, z;
-    Vector(float a=0) { x = y = z = a; }
-    Vector(float a, float b, float c) {
-        x = a;
-        y = b;
-        z = c;
-    }
+    Vector(float a=0);
+    Vector(float a, float b, float c);
 
-    friend Vector operator+(Vector a, Vector b) {
-        return Vector(a.x + b.x, a.y + b.y, a.z + b.z);
-    }
-    friend Vector operator+(Vector a, float b) {
-        return Vector(a.x + b, a.y + b, a.z + b);
-    }
-    friend Vector operator+(float b, Vector a) {
-        return Vector(a.x + b, a.y + b, a.z + b);
-    }
-    friend Vector operator-(Vector a, Vector b) {
-        return a + b * -1;
-    }
-    friend Vector operator-(Vector a, float b) {
-        return a + b*-1;
-    }
-    friend Vector operator-(float a, Vector b) {
-        return a + b*-1;
-    }
+    friend Vector operator+(Vector a, Vector b);
+    friend Vector operator+(Vector a, float b);
+    friend Vector operator+(float b, Vector a);
+    friend Vector operator-(Vector a, Vector b);
+    friend Vector operator-(Vector a, float b);
+    friend Vector operator-(float a, Vector b);
 
-    friend Vector operator*(Vector a, Vector b) {
-        return Vector(a.x * b.x, a.y * b.y, a.z * b.z);
-    }
-    friend Vector operator*(Vector a, float b) {
-        return Vector(a.x * b, a.y * b, a.z * b);
-    }
-    friend Vector operator*(float b, Vector a) {
-        return Vector(a.x * b, a.y * b, a.z * b);
-    }
-    friend Vector operator/(Vector a, Vector b) {
-        return Vector(a.x / b.x, a.y / b.y, a.z / b.z);
-    }
-    friend Vector operator/(Vector a, float b) {
-        return a * (1. / b);
-    }
-    friend Vector operator/(float a, Vector b) {
-        return Vector(a / b.x, a / b.y, a / b.z);
-    }
+    friend Vector operator*(Vector a, Vector b);
+    friend Vector operator*(Vector a, float b);
+    friend Vector operator*(float b, Vector a);
+    friend Vector operator/(Vector a, Vector b);
+    friend Vector operator/(Vector a, float b);
+    friend Vector operator/(float a, Vector b);
 
-    float operator%(Vector o) {
-        return x * o.x + y * o.y + z * o.z;
-    }
-    float sqrMagnitude() {
-        return *this % *this;
-    }
-    float magnitude() {
-        return sqrtf(*this % *this);
-    }
+    float operator%(Vector o);
+    float sqrMagnitude();
+    float magnitude();
 
-    Vector operator-() {
-        return Vector(-x, -y, -z);
-    }
-    Vector operator!() {
-        return *this / sqrtf(*this % *this);
-    }
+    Vector operator-();
+    Vector operator!();
 
-    Vector cross(Vector o) {
-        return Vector(
-            y * o.z - z * o.y,
-            z * o.x - x * o.z,
-            x * o.y - y * o.x
-        );
-    }
-    Vector dot(Vector o) {
-        return *this % o;
-    }
+    Vector cross(Vector o);
+    Vector dot(Vector o);
     
-    float angleTo(Vector b) {
-        return acosf(*this % b);
-    }
+    float angleTo(Vector b);
 
-    Vector normalized() {
-        return !*this;
-    }
+    Vector normalized();
 };
 
-Vector powv(Vector v, float p) {
-    return Vector(powf(v.x, p), powf(v.y, p), powf(v.z, p));
-}
+Vector powv(Vector v, float p);
 
 #endif

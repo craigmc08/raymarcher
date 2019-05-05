@@ -1,7 +1,7 @@
 CPP = g++
 CPPFLAGS = -g
 
-SRCS = main.cpp Task.cpp
+SRCS = main.cpp Task.cpp Vector.cpp
 OBJS = $(subst .cpp,.o,$(SRCS))
 
 main: $(OBJS)
